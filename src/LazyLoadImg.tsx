@@ -60,6 +60,8 @@ function throttle(func: (...args: any[]) => void, wait?: number) {
 
         setTimeout(() => {
             func.apply(ctx, args);
+            clearTimeout(timer);
+            timer = null;
         }, wait);
     };
 }
